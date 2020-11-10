@@ -3,7 +3,7 @@ import urllib3
 h = urllib3.PoolManager()
 u = 'https://coronavirus-monitor.ru/coronavirus-v-moskve/'
 resp = h.request('GET', u)
-a = str(resp.data.decode('utf-8'))
+a = resp.data.decode('utf-8')
 a = a[10200:len(a)//25 - 295]
 c = 0
 x = ''

@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib3
+import os
 import datetime
 
 h = urllib3.PoolManager()
@@ -8,7 +9,9 @@ a = resp.data.decode('utf-8')
 soup = BeautifulSoup(a, 'lxml')
 c = str(soup.select("strong:nth-of-type(3)")).strip('[<strong>увеличилось на ')
 c = c.strip('</strong>]')
-print(c)
-
-with open (r'C:\Users\bbrit\Desktop\data.csv', 'a') as f:
-    f.write(c + ', ' + datetime.datetime.today().strftime("%Y-%m-%d") + '\n')
+if c == 'зменилось':
+    print('Сайт не обновил данные')
+    
+else:
+    with open (r'C:\Users\bbrit\Desktop\data.csv', 'a') as f:
+        f.write(c + ', ' + datetime.datetime.today().strftime("%Y-%m-%d") + '\n')

@@ -14,4 +14,4 @@ if c == 'зменилось':
     
 else:
     with open (r'C:\Users\bbrit\Desktop\data.csv', 'a') as f:
-        f.write(c + ', ' + datetime.datetime.today().strftime("%Y-%m-%d") + '\n')
+        f.write(c + ',' + datetime.datetime.today().strftime("%Y-%m-%d") + '\n')
